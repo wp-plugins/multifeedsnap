@@ -5,14 +5,14 @@ Requires at least: 2.5.0
 Tested up to: 2.5.1
 Stable tag: 1.0
 
-MultiFeedsnap is a simple plugin that will render multilpe RSS feeds to your post or page.
+MultiFeedsnap is a simple plugin that will render multiple RSS feeds to your post or page.
 
 == Description ==
 
 In preparing this site I wanted to have multiple RSS feeds on a single page. The simplest 
 plugin I found was Paul Morley's FeedSnap which seems to be no longer supported. However, 
 it only allows a single feed on each post or page. Therefore I rewrote the FeedSnap plugin
-to allow multiple feeds, removing its dependence on the lastRSS parser, and (in my opinion)
+to allow multiple feeds, removing its dependence on the lastRSS() parser, and (in my opinion)
 simplifying the code somewhat.
 
 MultiFeedsnap is based on Paul Morley's FeedSnap. Paul Morley's website is down and so I 
@@ -22,6 +22,8 @@ MultiFeedsnap  uses the function TextBetweenArray() posted by mvp at mvpprograms
 http://ie2.php.net/manual/en/function.strpos.php#72019.
 
 MultiFeedsnap also uses the ideas at http://wordpress.pastebin.ca/276266.
+
+MultiFeedSnap has been tested on WordPress 2.5.1 only.
 
 You can see an example of its use here: http://www.colincaprani.com/links/related-feeds/
 
@@ -40,7 +42,7 @@ Enter the following tags in your post:
 
 where feedurl is the url of the feed you wish displayed. 
 
-Multiple sets of tags are possible, seperated by whatever text you wish. 
+Multiple sets of tags are possible, separated by whatever text you wish. 
 MultiFeedSnap only replaces the [feedsnap] tags with the formatted feed data, 
 and so all other formatting is retained.
 
