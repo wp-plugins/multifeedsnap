@@ -10,7 +10,7 @@ MultiFeedsnap is a simple plugin that will render multilpe RSS feeds to your pos
 == Description ==
 
 In preparing this site I wanted to have multiple RSS feeds on a single page. The simplest 
-plugin I found was Paul Morley’s FeedSnap which seems to be no longer supported. However, 
+plugin I found was Paul Morley's FeedSnap which seems to be no longer supported. However, 
 it only allows a single feed on each post or page. Therefore I rewrote the FeedSnap plugin
 to allow multiple feeds, removing its dependence on the lastRSS parser, and (in my opinion)
 simplifying the code somewhat.
