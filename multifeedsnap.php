@@ -3,7 +3,7 @@
 Plugin Name: MultiFeedSnap 
 Plugin URI: http://www.colincaprani.com/wordpress/2008/05/multifeedsnap/
 Description: Plugin for displaying multiple RSS Feeds.
-Version: 1.0.1 
+Version: 1.0 
 Author: Colin Caprani 
 Author URI: http://www.colincaprani.com 
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -53,7 +53,7 @@ function multifeedsnap_function ($text)
         $pubdate = substr($item['pubdate'], 0, 16);
         if($pubdate != "")
           $pubdate = " - " . $pubdate;
-    		$atext .= "<p><b><a href=\"$item[link]\">$item[title]</a></b> <i>".$pubdate."</i><br>";
+    		$atext .= "<p><b><a href=\"$item[link]\" target=\"_blank\">$item[title]</a></b> <i>".$pubdate."</i><br>";
     		$atext .= html_entity_decode($item[description]); //.'<a href="'.$item['link'].'"> more...</a>'
     		$atext .= "</p>";
       }

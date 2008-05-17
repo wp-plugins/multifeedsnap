@@ -3,7 +3,7 @@ Contributors: Dr C
 Tags: Post,RSS
 Requires at least: 2.5.0
 Tested up to: 2.5.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 MultiFeedsnap is a simple plugin that will render multiple RSS feeds to your post or page.
 
@@ -35,7 +35,7 @@ You can see an example of its use here: http://www.colincaprani.com/links/relate
 	- edit the line indicated, changing $MAX_NO_POSTS to your desired number.
 3. Go into your WordPress administration page, click on Plugins and activate it.
 
-==  Useage ==
+==  Usage ==
 Enter the following tags in your post:
 
 [feedsnap]feedurl[/feedsnap] 
@@ -55,6 +55,9 @@ Richard Dawkins
 [feedsnap]http://feeds.feedburner.com/richarddawkins[/feedsnap]
 
 == Version History ==
+v1.0.2
+Links now open in new windows. Thanks to Thomas for the suggestion.
+
 v1.0.1
 Added support for digg.com feeds using the information here:
 http://hellaleet.blogspot.com/2007/04/parsing-diggs-rss-feeds.html
