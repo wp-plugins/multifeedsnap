@@ -53,3 +53,12 @@ Institution of Structural Engineers
 
 Richard Dawkins
 [feedsnap]http://feeds.feedburner.com/richarddawkins[/feedsnap]
+
+== Version History ==
+v1.0.1
+Added support for digg.com feeds using the information here:
+http://hellaleet.blogspot.com/2007/04/parsing-diggs-rss-feeds.html
+Thanks to Brad for spotting this.
+
+v1.0
+Initial release

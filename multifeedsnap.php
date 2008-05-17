@@ -3,7 +3,7 @@
 Plugin Name: MultiFeedSnap 
 Plugin URI: http://www.colincaprani.com/wordpress/2008/05/multifeedsnap/
 Description: Plugin for displaying multiple RSS Feeds.
-Version: 1.0 
+Version: 1.0.1 
 Author: Colin Caprani 
 Author URI: http://www.colincaprani.com 
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -32,7 +32,9 @@ function multifeedsnap_function ($text)
   $text = str_replace('[feedsnap]','<feedsnap>',$text);
 	$text = str_replace('[/feedsnap]','</feedsnap>',$text);
   $feedURL = TextBetweenArray('<feedsnap>','</feedsnap>',$text);
- 
+  
+  ini_set('user_agent', 'Anything here'); // so we can parse digg.com feeds
+  //  see: http://hellaleet.blogspot.com/2007/04/parsing-diggs-rss-feeds.html 
   $iFeeds = count($feedURL);  // Find out how many feeds on the page
   for ($i = 0; $i < $iFeeds; $i++)
   {
