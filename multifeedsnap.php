@@ -3,7 +3,7 @@
 Plugin Name: MultiFeedSnap 
 Plugin URI: http://www.colincaprani.com/wordpress/2008/05/multifeedsnap/
 Description: Plugin for displaying multiple RSS Feeds.
-Version: 1.0 
+Version: 1.0.2 
 Author: Colin Caprani 
 Author URI: http://www.colincaprani.com 
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.

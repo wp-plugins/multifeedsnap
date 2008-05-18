@@ -9,7 +9,7 @@ MultiFeedsnap is a simple plugin that will render multiple RSS feeds to your pos
 
 == Description ==
 
-In preparing this site I wanted to have multiple RSS feeds on a single page. The simplest 
+In preparing my site I wanted to have multiple RSS feeds on a single page. The simplest 
 plugin I found was Paul Morley's FeedSnap which seems to be no longer supported. However, 
 it only allows a single feed on each post or page. Therefore I rewrote the FeedSnap plugin
 to allow multiple feeds, removing its dependence on the lastRSS() parser, and (in my opinion)
@@ -26,6 +26,10 @@ MultiFeedsnap also uses the ideas at http://wordpress.pastebin.ca/276266.
 MultiFeedSnap has been tested on WordPress 2.5.1 only.
 
 You can see an example of its use here: http://www.colincaprani.com/links/related-feeds/
+
+The MultiFeedSnap website is: http://www.colincaprani.com/wordpress/2008/05/multifeedsnap/
+
+PLease leave some comments and suggestions for improvement. Thanks!
 
 == Installation  ==
 
@@ -48,11 +52,14 @@ and so all other formatting is retained.
 
 Example:
 
-Institution of Structural Engineers
+`<p>------------------------------------------------------</p>
+<h3>Institution of Structural Engineers</h3>
 [feedsnap]http://www.istructe.org/news/rss.asp[/feedsnap]
 
-Richard Dawkins
+<p>------------------------------------------------------</p>
+<h3>Richard Dawkins</h3>
 [feedsnap]http://feeds.feedburner.com/richarddawkins[/feedsnap]
+<p>------------------------------------------------------</p>`
 
 == Version History ==
 v1.0.2
