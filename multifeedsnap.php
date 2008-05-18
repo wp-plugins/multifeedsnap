@@ -3,7 +3,7 @@
 Plugin Name: MultiFeedSnap 
 Plugin URI: http://www.colincaprani.com/wordpress/2008/05/multifeedsnap/
 Description: Plugin for displaying multiple RSS Feeds.
-Version: 1.0.2 
+Version: 1.0.3 
 Author: Colin Caprani 
 Author URI: http://www.colincaprani.com 
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -40,8 +40,24 @@ function multifeedsnap_function ($text)
   {
     $atext = ""; // reset replacement for string between feedsnap brackets
   
-  	// Try to load and parse RSS file
-  	if( fopen($feedURL[$i],'r') )
+    // This sections checks if the feed is a valid URL using the PHP fopen()
+    // function, or if the server has allow_url_fopen = Off then uses Snoopy
+    // to see if the site is valid.
+    $site_exists = false;
+    if(ini_get("allow_url_fopen"))
+    {
+      if(fopen($feedURL[$i],'r')) $site_exists = true;
+    }
+    else
+    {
+      require_once(ABSPATH . WPINC . '/class-snoopy.php'); 
+      $client = new Snoopy(); 
+      if( $client->fetch($feedURL[$i]) )
+         $site_exists = true;
+    } 
+  
+ 	  // Try to load and parse RSS file
+  	if( $site_exists )
     {
       require_once(ABSPATH . WPINC . '/rss-functions.php');
       $rs = fetch_rss($feedURL[$i]);
@@ -59,9 +75,7 @@ function multifeedsnap_function ($text)
       }
     }
   	else 
-    {
       $atext .= "Error: It's not possible to reach RSS file...\n";
-    }
  
     // this finds the particular feed between the feedsnap brackets and replaces
     // it with the assembled feed text

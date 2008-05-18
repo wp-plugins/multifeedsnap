@@ -3,7 +3,7 @@ Contributors: Dr C
 Tags: Post,RSS
 Requires at least: 2.5.0
 Tested up to: 2.5.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
 MultiFeedsnap is a simple plugin that will render multiple RSS feeds to your post or page.
 
@@ -62,6 +62,10 @@ Example:
 <p>------------------------------------------------------</p>`
 
 == Version History ==
+v1.0.3
+Added support for servers with allow_url_fopen = Off using a call to Snoopy. 
+Thanks to Brad (again!) for discovering this and persevering with it.
+
 v1.0.2
 Links now open in new windows. Thanks to Thomas for the suggestion.
 
