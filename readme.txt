@@ -29,7 +29,7 @@ You can see an example of its use here: http://www.colincaprani.com/links/relate
 
 The MultiFeedSnap website is: http://www.colincaprani.com/wordpress/2008/05/multifeedsnap/
 
-PLease leave some comments and suggestions for improvement. Thanks!
+Please leave some comments and suggestions for improvement. Thanks!
 
 == Installation  ==
 
