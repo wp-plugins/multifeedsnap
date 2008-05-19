@@ -36,13 +36,13 @@ Please leave some comments and suggestions for improvement. Thanks!
 1. Download the Zip-Archive and extract all files into your wp-content/plugins/ directory.
 2. If you want to change the number of posts displayed on each feed from the default of 5:
 	- open the file multifeedsnap.php with a text editor;
-	- edit the line indicated, changing $MAX_NO_POSTS to your desired number.
+	- edit the line indicated, changing _$MAX\_NO\_POSTS_ to your desired number.
 3. Go into your WordPress administration page, click on Plugins and activate it.
 
 ==  Usage ==
 Enter the following tags in your post:
 
-[feedsnap]feedurl[/feedsnap] 
+`[feedsnap]feedurl[/feedsnap]`
 
 where feedurl is the url of the feed you wish displayed. 
 
@@ -63,7 +63,7 @@ Example:
 
 == Version History ==
 v1.0.3
-Added support for servers with allow_url_fopen = Off using a call to Snoopy. 
+Added support for servers with _allow\_url\_fopen = Off_ using a call to Snoopy. 
 Thanks to Brad (again!) for discovering this and persevering with it.
 
 v1.0.2
