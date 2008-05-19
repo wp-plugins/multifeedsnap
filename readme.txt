@@ -25,9 +25,9 @@ MultiFeedsnap also uses the ideas at http://wordpress.pastebin.ca/276266.
 
 MultiFeedSnap has been tested on WordPress 2.5.1 only.
 
-You can see an example of its use here: http://www.colincaprani.com/links/related-feeds/
+The MultiFeedSnap website is: http://www.colincaprani.com/wordpress/multifeedsnap/
 
-The MultiFeedSnap website is: http://www.colincaprani.com/wordpress/2008/05/multifeedsnap/
+You can see an example of its use here: http://www.colincaprani.com/links/related-feeds/
 
 Please leave some comments and suggestions for improvement. Thanks!
 
