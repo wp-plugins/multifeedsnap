@@ -78,7 +78,7 @@ Example:
 == Version History ==
 v1.1
 Added tag option for number of posts from each feed. This means no more hacking!
-ANy ideas for further extension? Let me know: www.colincaprani.com/programming/multifeedsnap/
+Any ideas for further extension? Let me know: www.colincaprani.com/programming/multifeedsnap/
 
 v1.0.3
 Added support for servers with _allow\_url\_fopen = Off_ using a call to Snoopy. 
