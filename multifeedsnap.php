@@ -52,7 +52,8 @@ function multifeedsnap_function ($text)
     $text = str_replace($option, "",$text);
   }
   // lastly replace closing bracket - this must be done outside loop
-  $text = str_replace(']','>',$text); 
+  // but only if we have feedsnap brackets
+  $text = str_replace('feedsnap]','feedsnap>',$text); 
   
   ini_set('user_agent', 'Anything here'); // so we can parse digg.com feeds
   //  see: http://hellaleet.blogspot.com/2007/04/parsing-diggs-rss-feeds.html 
