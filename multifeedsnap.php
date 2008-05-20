@@ -3,39 +3,60 @@
 Plugin Name: MultiFeedSnap 
 Plugin URI: http://www.colincaprani.com/wordpress/2008/05/multifeedsnap/
 Description: Plugin for displaying multiple RSS Feeds.
-Version: 1.0.3 
+Version: 1.1 
 Author: Colin Caprani 
 Author URI: http://www.colincaprani.com 
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 
-  Copyright 2008 Colin Caprani (email: info@colincaprani.com)
+Copyright 2008 Colin Caprani (email: info@colincaprani.com)
 
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
 function multifeedsnap_function ($text)
 {
-  // Edit the next line to set the maximum number of posts from the feed
-  $MAX_NO_POSTS = 5; 
-  $text = str_replace('[feedsnap]','<feedsnap>',$text);
-	$text = str_replace('[/feedsnap]','</feedsnap>',$text);
-  $feedURL = TextBetweenArray('<feedsnap>','</feedsnap>',$text);
+  // Edit the next line to set the default maximum number of feed posts
+  $MAX_NO_POSTS = 5;
+  // Enable user to specify no of posts per feed, e.g.:
+  // [feedsnap, 4]www.thefeed.com[/feedsnap]
+  // [feedsnap, 12]www.thefeed.com[/feedsnap]
+  // [feedsnap]www.thefeed.com[/feedsnap]
+  $text = str_replace('[feedsnap','<feedsnap',$text); //allow for option
+	$text = str_replace('[/feedsnap]','</feedsnap>',$text);  // no option
+
+  $feedURL = TextBetweenArray('<feedsnap','</feedsnap>',$text);
+  $iFeeds = count($feedURL);  // Find out how many feeds on the page
+  for ($i = 0; $i < $iFeeds; $i++)
+  {
+    $max_no_arr[$i] = $MAX_NO_POSTS; // default value for all feeds
+    $option = substr( $feedURL[$i], 0, strpos($feedURL[$i],']') );
+    $len = strlen($option);
+    // so retrieve and assign preferred no of max posts removing ', ' before number
+    // some error check for negative numbers or zero is included
+    if( $len != 0) $max_no_arr[$i] = max(1, intval( ltrim( substr($option, 2, $len) ) ) );
+    // trim the option from the feed URL - to be done whether option present or not
+    $feedURL[$i] = str_replace($option . "]", "",$feedURL[$i]);
+    // and trim the option from the page's html
+    $text = str_replace($option, "",$text);
+  }
+  // lastly replace closing bracket - this must be done outside loop
+  $text = str_replace(']','>',$text); 
   
   ini_set('user_agent', 'Anything here'); // so we can parse digg.com feeds
   //  see: http://hellaleet.blogspot.com/2007/04/parsing-diggs-rss-feeds.html 
-  $iFeeds = count($feedURL);  // Find out how many feeds on the page
+
   for ($i = 0; $i < $iFeeds; $i++)
   {
     $atext = ""; // reset replacement for string between feedsnap brackets
@@ -52,7 +73,7 @@ function multifeedsnap_function ($text)
     {
       require_once(ABSPATH . WPINC . '/class-snoopy.php'); 
       $client = new Snoopy(); 
-      if( $client->fetch($feedURL[$i]) )
+      if( $client->fetch($feedURL[$i]))
          $site_exists = true;
     } 
   
@@ -62,7 +83,7 @@ function multifeedsnap_function ($text)
       require_once(ABSPATH . WPINC . '/rss-functions.php');
       $rs = fetch_rss($feedURL[$i]);
   	  $items = $rs->items;
-      $count = min(count($items),$MAX_NO_POSTS);
+      $count = min(count($items),$max_no_arr[$i]);
       for ($j = 0; $j < $count; $j++)
       {
         $item = $items[$j];
